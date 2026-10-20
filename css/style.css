@@ -79,7 +79,7 @@ footer{
 #Demande span{
     display: flex;
     justify-content: space-between;
-    padding:10px;
+    padding:5px;
 }
 .section-1{
     display: flex;
@@ -96,21 +96,22 @@ footer{
 .option label{
     border:solid; 
     border-color: #796A59;
-    padding: 20px;
+    padding: 5px;
     margin: 10px ;
-    border-radius: 30px;
-    width: 50%;
-
-    
+    border-radius:20px;
+    width: 50%;   
 }
 .option label  span{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 .option span:first-of-type{
-   font-size: 2rem;
+   font-size: 1rem;
    color: #796A59;
+   padding: 5px;
 
 }
 input{
@@ -125,7 +126,7 @@ input{
     color:#30291F;
 }
 .titre span:last-child{
-    color: ;
+    color:#796A59 ;
 }
 form{
     width: 50%;
@@ -155,6 +156,33 @@ form{
  margin: 10px;
  font-size:14px;
 }
+main{
+    background-color:#FAF7F0;
+}
+#modif{
+    margin: 20px;
+    color: #796A59;
+    font-size: small;
+}
+.section-2{
+    display: flex;
+    flex-direction: column;   
+}
+.section-3{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 20px;
 
-
-
+}
+button{
+    background-color: #394B32;
+    border-radius: 10px;
+    padding: 16px 32px;
+    color: aliceblue;
+}
+.validate{
+    background-color:#E9EEDC;
+    outline-color: #394B32;
+}
