@@ -122,6 +122,10 @@ input{
 }
 .titre span:first-child{
     font-size:20px;
+    color:#30291F;
+}
+.titre span:last-child{
+    color: ;
 }
 form{
     width: 50%;
