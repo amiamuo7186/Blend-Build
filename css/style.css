@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+}
+header>div:first-child{
+    background-color: #394B32; 
+    display: flex;
+    justify-content: center;
+    padding:5px;
+}
+header>div:last-child{
+    background-color:#FAF7F0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+}
+#logo{
+    display:flex;
+    flex-direction: row;  
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 10px;
+}
+#logo i{
+    color: #394B32;
+    font-size: x-large;
+}
+#logo h1{
+    font-family:Playfair Display;
+    font-size: 32px;
+    font-weight: 500px;
+    color: #394B32;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+header>div:last-child>span:last-child{
+    display: flex;
+    flex-direction:row;
+    justify-content: end;
+    padding-right: 10px;
+
+}
+a {
+    text-decoration: none;
+    color:#796A59
+}
+a :focus{
+    color:#394B32
+}
+header>div:last-child>span:last-child i{
+    color: #394B32;
+    font-size: medium;
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    background-color:#FAF7F0;
+    justify-content: space-between;
+    padding: 30px;
+}
+#Demande{
+    height:700px;
+    background-color: #E8DBC7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+#Demande>img{
+    max-height: 528px;
+    max-width: 616px;
+}
+#Demande span{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+}
+.section-1{
+    display: flex;
+    gap: 12px;
+
+}
+
+
+.option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.option label{
+    border:solid; 
+    border-color: #796A59;
+    padding: 20px;
+    margin: 10px ;
+    border-radius: 30px;
+    width: 50%;
+
+    
+}
+.option label  span{
+    display: flex;
+    flex-direction: column;
+
+}
+.option span:first-of-type{
+   font-size: 2rem;
+   color: #796A59;
+
+}
+input{
+    display: none;
+}
+.titre{
+    display:flex;
+    justify-content: space-between;
+}
+.titre span:first-child{
+    font-size:20px;
+}
+form{
+    width: 50%;
+    padding:5px ;
+}
+.intro{
+    padding: 2px;   
+}
+.intro h2{
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 48px;
+    color: #30291F;
+}
+.intro p:first-child{
+    color: #394B32;
+    margin: 10px;
+}
+.intro p:nth-child(2){
+ color: #796A59;
+ margin: 10px;
+ font-size:14px;
+
+}
+.intro p:last-child{
+ color: #796A59;
+ margin: 10px;
+ font-size:14px;
+}
+
+
+
