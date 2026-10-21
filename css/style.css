@@ -86,8 +86,6 @@ footer{
     gap: 12px;
 
 }
-
-
 .option{
     display: flex;
     flex-direction: row;
@@ -104,7 +102,6 @@ footer{
 .option label  span{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
 }
@@ -115,7 +112,7 @@ footer{
 
 }
 input{
-    display: none;
+    appearance: none;
 }
 .titre{
     display:flex;
@@ -185,9 +182,15 @@ button{
 h3{
     font-size: 30px;
 }
-.validate{
-    background-color:#E9EEDC;
-    outline-color: #394B32;
+.carte:has(input:checked) {
+    background: #e9eddc;
+    border-color: #40543a;
+    border-width: 3px;
+}
+
+.carte:has(input:checked) span:first-of-type::before {
+    content: "✓";
+    margin-right: 10px;
 }
 .section-4{
     display: flex;

@@ -1,7 +1,7 @@
 
 const config = {
   base: {
-    espresso: { name: "Espresso", price: 18 },
+    espresso: { name: "Espresso-latte", price: 18 },
     filtre: { name: "Filtre", price: 16 }
   },
   taille: {
@@ -21,5 +21,71 @@ const config = {
 };
 let price=0;
 let count=0;
-const label=querySelectorAll("label")
-for 
+const Base = document.querySelector(".Base");
+const Taille=document.querySelector(".Taille");
+const Lait=document.querySelector(".Lait");
+const Supplements=document.querySelector(".Supplément");
+const base=Base.querySelectorAll("span")
+const taille=Taille.querySelectorAll("span")
+const lait=Lait.querySelectorAll("span")
+const supplements=Supplements.querySelectorAll("span")
+
+          base[0].innerHTML=config.base.espresso.name;
+          base[1].innerHTML=config.base.espresso.price;
+          base[2].innerHTML=config.base.filtre.name;
+          base[3].innerHTML=config.base.filtre.price;
+          taille[0].innerHTML=config.taille.s.name;
+          taille[1].innerHTML=config.taille.s.price;
+          taille[2].innerHTML=config.taille.m.name;
+          taille[3].innerHTML=config.taille.m.price;
+          taille[4].innerHTML=config.taille.l.name;
+          taille[5].innerHTML=config.taille.l.price
+          lait[0].innerHTML=config.lait.vache.name;
+          lait[1].innerHTML=config.lait.vache.price;
+          lait[2].innerHTML=config.lait.avoine.name;
+          lait[3].innerHTML=config.lait.avoine.price;
+          lait[4].innerHTML=config.lait.amande.name;
+          lait[5].innerHTML=config.lait.amande.price;
+          supplements[0].innerHTML=config.supplements.caramel.name;
+          supplements[1].innerHTML=config.supplements.caramel.price;
+          supplements[2].innerHTML=config.supplements.vanille.name;
+          supplements[3].innerHTML=config.supplements.vanille.price;
+
+
+// const radios = document.querySelectorAll('input[name="base"]');
+// radios.forEach(radio => {
+//     radio.addEventListener("change", function () {
+//         const selectedRadio = getSelectedRadio();
+//     console.log(selectedRadio);
+        
+//     });
+// });
+
+const panier = {} 
+
+function getSelected(inputs) {
+    for (const radio of inputs) {
+        if (radio.checked) {
+            return radio.nextElementSibling.nextElementSibling.textContent.trim();
+        }
+    }
+    return null;
+}
+
+function setupGroup(nom) {
+    const inputs = document.querySelectorAll(`input[name="${nom}"]`);
+    inputs.forEach(input => {
+        input.addEventListener("change", () => {
+            const selected = getSelected(inputs);
+            
+            console.log(nom, selected);
+        });
+    });
+}   
+
+setupGroup("base");
+setupGroup("taille");
+setupGroup("lait");
+setupGroup("supplément");
+
+     
