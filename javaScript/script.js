@@ -22,3 +22,4 @@ const config = {
 let price=0;
 let count=0;
 const label=querySelectorAll("label")
+for 
