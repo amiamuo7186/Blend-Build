@@ -135,7 +135,7 @@ form{
 .intro{
     padding: 2px;   
 }
-.intro h2{
+ h2{
     font-family: 'Playfair Display', serif;
     font-weight: 500;
     font-size: 48px;
@@ -182,7 +182,67 @@ button{
     padding: 16px 32px;
     color: aliceblue;
 }
+h3{
+    font-size: 30px;
+}
 .validate{
     background-color:#E9EEDC;
     outline-color: #394B32;
+}
+.section-4{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FAF7F0;
+}
+.section-5{
+    width: 50%;
+    border: solid;
+    border-color:#DFD5C8;
+    border-radius: 20px;
+    background-color: white;
+
+}
+.section-5 > p:first-of-type{
+    display:inline-block;
+    border: solid;
+    border-radius: 20px;
+    background-color: #E9EEDC;
+    padding: 10px;
+    margin: 20px;
+}
+.section-5 >h3{
+    font-size:x-large;
+    font-weight:250px;
+    margin: 10px 20px;
+}
+.section-5 p{
+    color:#796A59;
+    margin: 10px 20px;
+
+}
+.section-5 h4{
+    padding:10px;
+}
+.boutton-lon{
+    width: 80%;
+    margin-left:80px;
+}
+#modifiable{
+    background-color: #E9EEDC;
+    border: solid ;
+    border-radius:20px;
+    padding: 20px;
+    width: 75%;
+    margin-left:80px ;
+}
+.section-6{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap:40%;
+}
+.section-6 a {
+    text-decoration: underline;
+
 }
