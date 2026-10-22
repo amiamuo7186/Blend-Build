@@ -21,6 +21,8 @@ const config = {
 };
 let price=0;
 let count=0;
+const Prix=document.querySelector(".Prix")
+Prix.innerHTML=("0")
 const Base = document.querySelector(".Base");
 const Taille=document.querySelector(".Taille");
 const Lait=document.querySelector(".Lait");
@@ -51,41 +53,45 @@ const supplements=Supplements.querySelectorAll("span")
           supplements[2].innerHTML=config.supplements.vanille.name;
           supplements[3].innerHTML=config.supplements.vanille.price;
 
-
-// const radios = document.querySelectorAll('input[name="base"]');
-// radios.forEach(radio => {
-//     radio.addEventListener("change", function () {
-//         const selectedRadio = getSelectedRadio();
-//     console.log(selectedRadio);
-        
-//     });
-// });
-
-const panier = {} 
-
-function getSelected(inputs) {
-    for (const radio of inputs) {
-        if (radio.checked) {
-            return radio.nextElementSibling.nextElementSibling.textContent.trim();
-        }
-    }
-    return null;
+function calculerP(nom){
+ 
+    const PrixB = document.querySelectorAll(`input[name="${nom}"]`);
+       PrixB.forEach(radio => {
+      radio.addEventListener("change", function () {
+       if(nom==="supplements" && radio.checked ){
+     PrixGlobale[radio.id] =config[radio.name][radio.id];
+       }else if(nom==="supplements" && !radio.checked){
+       PrixGlobale[radio.id] =null  
+     
+  }else{
+    PrixGlobale[nom] =config[radio.name][radio.id];}
+       console.log(PrixGlobale);
+       PrixTotale(PrixGlobale)
+       return PrixGlobale[nom] 
+      });
+});
 }
 
-function setupGroup(nom) {
-    const inputs = document.querySelectorAll(`input[name="${nom}"]`);
-    inputs.forEach(input => {
-        input.addEventListener("change", () => {
-            const selected = getSelected(inputs);
-            
-            console.log(nom, selected);
-        });
-    });
-}   
-
-setupGroup("base");
-setupGroup("taille");
-setupGroup("lait");
-setupGroup("supplément");
+const PrixGlobale={
+  base:null,
+  taille:null,
+  lait:null,
+  vanille:null,
+  caramel:null
+}
+calculerP("base")
+calculerP("taille")
+calculerP("lait")
+calculerP("supplements")
+function PrixTotale(obj){
+  let total =0;
+  for(key in obj){
+    if(obj[key]!==null){
+         total+=obj[key].price;
+          Prix.innerHTML=total
+          console.log(price)
+      }
+    }
+  }
 
      

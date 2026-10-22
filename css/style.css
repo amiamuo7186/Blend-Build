@@ -111,9 +111,9 @@ footer{
    padding: 5px;
 
 }
-input{
+/* input{
     appearance: none;
-}
+} */
 .titre{
     display:flex;
     justify-content: space-between;
