@@ -1,4 +1,3 @@
-
 const config = {
   base: {
     espresso: { name: "Espresso-latte", price: 18 },
@@ -21,8 +20,9 @@ const config = {
 };
 let price=0;
 let count=0;
-const Prix=document.querySelector(".Prix")
-Prix.innerHTML=("0")
+const Conteur=document.querySelector("#Conteur")
+const Prix=document.querySelectorAll(".Prix")
+Prix[0].innerHTML=("0")
 const Base = document.querySelector(".Base");
 const Taille=document.querySelector(".Taille");
 const Lait=document.querySelector(".Lait");
@@ -52,22 +52,22 @@ const supplements=Supplements.querySelectorAll("span")
           supplements[1].innerHTML=config.supplements.caramel.price;
           supplements[2].innerHTML=config.supplements.vanille.name;
           supplements[3].innerHTML=config.supplements.vanille.price;
-
+// calculer le prix 
 function calculerP(nom){
- 
     const PrixB = document.querySelectorAll(`input[name="${nom}"]`);
-       PrixB.forEach(radio => {
+      PrixB.forEach(radio => {
       radio.addEventListener("change", function () {
-       if(nom==="supplements" && radio.checked ){
-     PrixGlobale[radio.id] =config[radio.name][radio.id];
-       }else if(nom==="supplements" && !radio.checked){
+      if(nom==="supplements" && radio.checked ){
+      PrixGlobale[radio.id] =config[radio.name][radio.id];
+       }
+      else if(nom==="supplements" && !radio.checked){
        PrixGlobale[radio.id] =null  
-     
-  }else{
-    PrixGlobale[nom] =config[radio.name][radio.id];}
-       console.log(PrixGlobale);
-       PrixTotale(PrixGlobale)
-       return PrixGlobale[nom] 
+      }
+      else{
+       PrixGlobale[nom] =config[radio.name][radio.id];
+      }
+    
+       PrixTotale(PrixGlobale) 
       });
 });
 }
@@ -84,14 +84,41 @@ calculerP("taille")
 calculerP("lait")
 calculerP("supplements")
 function PrixTotale(obj){
+  
   let total =0;
   for(key in obj){
     if(obj[key]!==null){
          total+=obj[key].price;
-          Prix.innerHTML=total
-          console.log(price)
+          Prix[0].innerHTML=`${total}.00 DH`
+          Prix[1].innerHTML=`${total}.00 DH`
+
       }
     }
+    // le tickets 
+    const tickets=document.querySelectorAll(".tickets")
+    const keys = Object.keys(PrixGlobale)
+    const PrixTic=document.querySelectorAll(".priceTickets") 
+    console.log(PrixTic)
+    for (let i =0;i<tickets.length;i++) {
+      tickets[i].innerHTML=PrixGlobale[keys[i]]?.name ?? "";
+    }
+    for (let j =0;j<PrixTic.length;j++) {
+      PrixTic[j].innerHTML=`${PrixGlobale[keys[j]]?.price ?? ""}.00 DH`
+    }
+    Conteur.innerHTML=count+1
   }
+ // passer a l'autre page  
+const heroSection = document.querySelector(".hero_section")
+const factureSection=document.querySelector(".facture_section ")   
+document.addEventListener("click",(e)=>{
+    if ((e.target.classList.contains("next"))){
+        heroSection.classList.add("hidden")
+        factureSection.classList.remove("hidden")
+    }
+    if ((e.target.classList.contains("previous"))){
+        factureSection.classList.add("hidden")
+        heroSection.classList.remove("hidden")
+    }
+})
 
-     
+

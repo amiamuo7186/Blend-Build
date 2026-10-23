@@ -18,7 +18,7 @@
         <div>
             <span id="logo">
                 <i class="fa-solid fa-mug-hot"></i>
-                <h1>BRUME</h1>
+                <h1 class="previous">BRUME</h1>
             </span>
 
             <nav>
@@ -26,14 +26,14 @@
                 <a href="#">Notre savoir-faire </a>
                 <a href="#"> Besoin d’aide ?</a>
             </nav>
-            <span>
-                <i class="fa-solid fa-bag-shopping"></i>
-                <p>0</p>
+            <span >
+                <i  class="fa-solid fa-bag-shopping next"></i>
+                <p id="Conteur">0</p>
             </span>
         </div>
     </header>
     <main>
-        <section>
+        <section class="hero_section">
             <div class="section-2">
                 <div class="section-1">
 
@@ -48,7 +48,7 @@
                     </div>
                     <form action="#" method="post">
                         <div class="intro">
-                            <p> 01 Personaliser --- 02 Récapitulatif</p>
+                            <p> 01 Personaliser ---<span class="next"> 02 Récapitulatif</span> </p>
                             <p>VOTRE COFFEE SHOP, AUTREMENT. </p>
                             <h2> Votre pause,<br>votre signature.</h2>
                             <p> Quelques envies, un café unique.<br>À vous de composer la suite</p>
@@ -139,13 +139,13 @@
                         </p>
                         <h3 class="Prix">29,00 DH</h3>
                     </div>
-                    <button type="submit">Ajouter au panier →</button>
+                    <button type="submit" class="next">Ajouter au panier →</button>
                 </div>
             </div>
         </section>
-        <section>
+        <section class="facture_section  hidden">
             <div class="section-2">
-                <p> 01 Personaliser --- 02 Récapitulatif</p>
+                <p><span class="previous">01 Personaliser</span>  --- 02 Récapitulatif</p>
                 <p> VOTRE CRÉATION EST PRÊTE</p>
                 <h2> Votre moment café,<br>exactement comme vous l’aimez.</h2>
             </div>
@@ -158,17 +158,37 @@
                     <h3> Votre récapitulatif</h3>
                     <p> Une création personnalisée · Quantité : 1</p>
                     <hr>
-                    <div>
-                        <h4 class="titre "> Base · Espresso <span> 18,00 DH</span></h4>
-                        <h4 class="titre "> Taille · M / 250 ml <span> 4,00 DH</span></h4>
-                        <h4 class="titre "> Lait · Avoine<span> 4,00 DH</span></h4>
-                        <h4 class="titre "> Supplément · Caramel <span> 3,00 DH</span></h4>
+                    <div >
+                        <div class="facture">
+                            <h4 class="titre  tickets"></h4> 
+                          <p class="priceTickets"> </p>
+                        </div>
+                        <div class="facture">
+                            <h4 class="titre tickets"></h4> 
+                            <p  class="priceTickets"></p>
+                        </div>
+                        <div class="facture">
+                            <h4 class="titre  tickets"></h4> 
+                           <p  class="priceTickets"></p>
+                        </div>
+                        <div class="facture">
+                            <h4 class="titre tickets"></h4> 
+                            <p  class="priceTickets"> </p>
+                        </div>
+                        <div class="facture">
+                            <h4 class="titre tickets"></h4> 
+                           <p  class="priceTickets"> </p>
+                        </div>
+                        
+                        
+                        
+                        
                     </div>
 
                     <hr>
                     <h3 class="titre "> Total <span class="Prix">29,00 DH </span></h3>
                     <p>Prix de cette sélection · aucun paiement effectué.</p>
-                    <button class="boutton-lon" type="button">Créer un autre café → </button>
+                    <button class="boutton-lon  previous" type="button">Créer un autre café → </button>
                     <p id="modifiable"> <i class="fa-solid fa-check"></i> Votre sélection reste modifiable à tout
                         moment. </p>
                 </div>
@@ -179,7 +199,7 @@
                     <h4> Votre café signature</h4>
                     <p>Espresso · M · Avoine · Caramel</p>
                 </div>
-                <a href="#"> Modifier</a>
+                <a href="#" class="previous"> Modifier</a>
 
             </div>
 

@@ -111,9 +111,9 @@ footer{
    padding: 5px;
 
 }
-/* input{
+input{
     appearance: none;
-} */
+}
 .titre{
     display:flex;
     justify-content: space-between;
@@ -248,4 +248,12 @@ h3{
 .section-6 a {
     text-decoration: underline;
 
+}
+.hidden{
+    display: none !important;
+}
+.facture{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
