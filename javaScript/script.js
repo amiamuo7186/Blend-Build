@@ -121,5 +121,5 @@ document.addEventListener("click",(e)=>{
         heroSection.classList.remove("hidden")
     }
 })
-
+//
 
