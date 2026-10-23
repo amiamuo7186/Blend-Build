@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 header>div:first-child{
     background-color: #394B32; 
@@ -256,4 +257,58 @@ h3{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+@media only screen and (max-width: 500px) {
+
+header>div:first-child{
+    display: none;
+}
+nav{
+    display:none;
+}
+.section-1{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.section-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+footer{
+    display:flex;
+    flex-direction:column; 
+    justify-content: center; 
+}
+footer>p:last-child{
+    display:none;
+}
+#Demande{
+    width: 80%;
+   margin:10%;
+}
+button{
+    display: flex;
+    width: 70%;
+    gap: 10px;
+    text-align: center;
+    
+}
+form{
+    width: 100%;
+}
+main{
+    width: 100%;
+}
+.section-4{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.section-5{
+    width: 100%;
+}
+
 }
