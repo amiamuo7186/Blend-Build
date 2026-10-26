@@ -67,7 +67,7 @@ function calculerP(nom){
       else{
        PrixGlobale[nom] =config[radio.name][radio.id];
       }
-    
+        
        PrixTotale(PrixGlobale) 
       });
 });
@@ -90,11 +90,12 @@ function PrixTotale(obj){
   for(key in obj){
     if(obj[key]!==null){
          total+=obj[key].price;
-          Prix[0].innerHTML=`${total}.00 DH`
-          Prix[1].innerHTML=`${total}.00 DH`
+          
 
       }
     }
+    Prix[0].innerHTML=`${total}.00 DH`
+          Prix[1].innerHTML=`${total}.00 DH`
     // le tickets 
     const tickets=document.querySelectorAll(".tickets")
     const keys = Object.keys(PrixGlobale)
@@ -104,7 +105,7 @@ function PrixTotale(obj){
       tickets[i].innerHTML=PrixGlobale[keys[i]]?.name ?? "";
     }
     for (let j =0;j<PrixTic.length;j++) {
-      PrixTic[j].innerHTML=`${PrixGlobale[keys[j]]?.price ?? ""}.00 DH`
+      PrixTic[j].innerHTML=`${PrixGlobale[keys[j]]?.price ?? ""}`
     }
     Conteur.innerHTML=count+1
   }

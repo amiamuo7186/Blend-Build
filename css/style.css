@@ -312,3 +312,90 @@ main{
 }
 
 }
+.commandes{
+    
+    border-color:#795339;
+    border-radius: 5px;
+    width: 250px;
+    padding: 10px;
+    margin:10px ;
+}
+.commandes div span:first-child{
+    width: 10px;;
+    padding: 10px ;
+    color: #394B32;
+
+}
+.augmenter{
+    background-color: #796A59;
+    width:10px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.vertical{
+    display: flex;
+    flex-direction: column;
+}
+.horizontale{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.horizontale img{
+    width:30%;
+    gap: 10px;
+}
+.horizontale h3{
+    font-size: 20px;
+    color: #394B32;
+    
+}
+.ajout{
+    padding: 10px;
+   margin: 20px;
+}
+.section-7 h2{
+    display: flex;
+    justify-content: end;
+    font-size:20px;
+    margin: 10px;
+}
+
+.Payement form label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+    
+}
+.Payement fieldset{
+    border: none;
+}
+.Payement legend{
+    font-size: 20px;
+    color: #795339;
+    display: flex;
+    align-items: center;
+}
+.Payement input{
+    padding: 10px 50px;
+    margin: 5px;
+  border: #40543a;
+    border-radius: 5px;
+    outline:solid #394B32; 
+}
+.section-7{
+     display: flex;
+    flex-direction: row;
+    background-color: #FAF7F0;
+    gap: 250px;
+    margin: 10px;
+}
+.section-7 h4{
+    color:#795339;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

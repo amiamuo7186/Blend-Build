@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>checkout</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
      <header>
@@ -27,7 +29,83 @@
         </div>
     </header>
     <main>
-        
+          
+          <section class="section-7">
+            <!-- <img src="../assets/image2.png" alt="image repesentative pour le site" > -->
+            <section class="section-5">
+                <h4>Mon Panier</h4>
+                <div class="commandes">
+                 <div class="horizontale ">
+                    
+                    <img src="../assets/Cappuccino Mousseux.jpg" alt="cafe cappuccino">
+                    <div class="vertical ">
+                        
+                       <h3>Cappuccino Mousseux</h3>
+                       
+                    </div>
+                    <div class="vertical">
+                        <span class="horizontale">  <button type="button" class="augmenter">+</button><span>Quantity: 2 </span><button type="button"  class="augmenter">-</button></span>
+                        <h4> Price:4.00</h4>
+                    </div> 
+                 </div>
+              </div>
+            <div class="commandes">
+                <div class="horizontale ">
+                    <img src="../assets/Latte Caramel.png" alt="cafe cappuccino">
+                    <div class="vertical ">  
+                       <h3>Latte Caramel</h3>
+                       
+                    </div>
+                    <div class="vertical">
+                        <span class="horizontale">  <button type="button" class="augmenter">+</button><span>Quantity: 1 </span><button type="button"  class="augmenter">-</button></span>
+                        <h4> Price:4.50</h4>
+                    </div>
+                 </div>
+            </div>
+            <div class="commandes">
+
+                 <div class="horizontale ">
+                    <img src="../assets/Mug Isotherme Noir.png" alt="cafe cappuccino">
+                    <div class="vertical ">  
+                       <h3>Mug Isotherme Noir</h3>
+                       
+                    </div>
+                    <div class="vertical">
+                        <span class="horizontale">  <button type="button" class="augmenter">+</button><span>Quantity: 1 </span><button type="button"  class="augmenter">-</button></span>
+                        <h4> Price:15.00</h4>
+                    </div>
+                 </div>
+            </div>
+            <button type="button" class="ajout"> ajouter un choix</button>
+            <h2>TOTAL:50DH</h2>
+            </section>
+            <section class="Payement">
+            <form>
+            <fieldset>
+                <legend>Payement de votre Commande</legend>
+                <label for="fname">Prenom
+                <input type="text" id="fname" ></label>
+                <label for="lname">Nom
+                <input type="text" id ="lname"></label>
+                <label for="adresse">adresse
+                <input type="text" id="adresse"></label>
+                <label for="email">Email
+                <input type="email" id="email"></label>
+                <label for="tele">Numero de telephone 
+                <input type="tel" id="tele"></label>
+                <label for="Carteb">numéro de carte bancaire
+                <input type="text" id="Carteb"></label>
+                <label for="dateexp">Date d'expiration 
+                <input type="text" id="dateexp"></label>
+                <label for="CVV"> CVV
+                <input type="text" id="CVV"></label>
+            </fieldset>
+          </form>
+          </section>  
+          </section>
+          
+          
+          
     </main>
     <footer>
         <p>BRUME — Le goût de votre rythme</p>
