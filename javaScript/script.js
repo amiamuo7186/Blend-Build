@@ -91,11 +91,11 @@ function PrixTotale(obj){
     if(obj[key]!==null){
          total+=obj[key].price;
           
-
+Prix[0].innerHTML=`${total}.00 DH`
+          Prix[1].innerHTML=`${total}.00 DH`
       }
     }
-    Prix[0].innerHTML=`${total}.00 DH`
-          Prix[1].innerHTML=`${total}.00 DH`
+    
     // le tickets 
     const tickets=document.querySelectorAll(".tickets")
     const keys = Object.keys(PrixGlobale)
