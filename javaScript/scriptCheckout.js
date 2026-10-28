@@ -77,7 +77,8 @@ for (let i = 0; i < augmenter.length; i++) {
         console.log(coffeeCart[i].quantity)
         
         // calculerTotale(coffeeCart)^
-        prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH ` 
+        prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH `
+        calculerTotale(coffeeCart) 
     });
 
 }
@@ -90,7 +91,58 @@ for (let i = 0; i < augmenter.length; i++) {
 
         quantites[i].textContent = "Quantity: " + coffeeCart[i].quantity;
          prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH `
+         calculerTotale(coffeeCart)
+         if(coffeeCart[i].quantity===0){
+          // suprimer le choix 
+         }
+    });
+}
+
+// modal 
+const dialog = document.getElementById("myDialog"); 
+const ajout=document.querySelector(".ajout")
+const ajouter=document.getElementById("ajouter")
+const chercher=document.getElementById("chercher")
+const results=document.getElementById("results")
+
+ajout.addEventListener("click",function(){
+  
+  dialog.show();
+})
+ajouter.addEventListener("click",function(){
+  dialog.close();
+})
+console.log(chercher.value)
+
+chercher.addEventListener("input", function () {
+const valeur = chercher.value.toLowerCase()
+console.log(valeur)
+let coffeedemande=coffeeProducts.filter(coffe=>coffe.name.toLowerCase().includes(valeur) )
+console.log(coffeedemande);
+
+
+coffeedemande.forEach(coffee => {
+
+        results.innerHTML += `
+            <div class="product">
+
+                
+                <h5>${coffee.name}</h5>
+
+                <p>${coffee.price.toFixed(2)} DH</p>
+
+                <button class="ajout" data-id="${coffee.id}">
+                     add 
+                </button>
+
+            </div>
+        `;
+
     });
 
+    // Si aucun résultat
+    if (coffeedemande.length === 0) {
+        results.innerHTML = "<p>Aucun produit trouvé.</p>";
+    }
 
-}
+  });
