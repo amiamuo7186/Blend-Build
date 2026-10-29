@@ -18,7 +18,7 @@ let coffeeCart = [
   { id: "c3", name: "Latte Caramel", price: 4.50, quantity: 1, image: "../assets/LatteCaramel.png " },
   { id: "c8", name: "Mug Isotherme Noir", price: 15.00, quantity: 1, image: "../assets/MugIsothermeNoir.png" }
 ];
-coffeChoisi={
+ let coffeChoisi={
   id:null,
   name:null,
   price:null,
@@ -29,6 +29,7 @@ coffeChoisi={
 const commandes=document.querySelectorAll(".commandes")
 coffeeCart.forEach(coffee => {
     for(let i=0;i<commandes.length;i++){
+      
         commandes[i].innerHTML += `
     <div class="horizontale" data-id="${coffee.id}">
       <img src="${coffee.image}" alt="${coffee.name}">
@@ -79,9 +80,9 @@ for (let i = 0; i < augmenter.length; i++) {
         coffeeCart[i].quantity++;
 
         quantites[i].textContent = "Quantity: " + coffeeCart[i].quantity;
-        console.log(Number((quantites[i])));
-        console.log(quantites[i])
-        console.log(coffeeCart[i].quantity)
+        // console.log(Number((quantites[i])));
+        // console.log(quantites[i])
+        // console.log(coffeeCart[i].quantity)
         
         // calculerTotale(coffeeCart)^
         prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH `
@@ -123,38 +124,62 @@ results.innerHTML= "" // pour vider result apres chaque input
 if (valeur==""){
   coffeedemande=""
   results.innerHTML = "<p>chisir un choix .</p>";
-}
-// console.log(coffeedemande);
-  
+} 
 coffeedemande.forEach(coffee => {
 
         results.innerHTML += `
-            <div class="product">
-
-                
+            <div class="product"> 
                 <h5>${coffee.name}</h5>
-
                 <p>${coffee.price.toFixed(2)} DH</p>
-
                 <button class="ajout" data-id="${coffee.id}">add 
                 </button>
 
             </div>
         `;
     });
-
-    
-    const add=document.querySelectorAll(".ajout")
-        console.log(add)
-        for(let i=0;i<add.length;i++){
-          add[i].addEventListener("click",function(){
-            
-            
-            let idChoisi=add[i].dataset.id
-            // console.log(add[i].dataset.id);
-            // console.log(idChoisi)
-            for (let i =0;i<coffeeCart.length;i++){
+       
+        // console.log(add)
+        // for(let i=0;i<add.length;i++){
+        //   add[i].addEventListener("click",function(){
+        //     let idChoisi=add[i].dataset.id
+        //     for (let i =0;i<coffeeCart.length;i++){
               
+        //       if(idChoisi==coffeeCart[i].id){
+        //        coffeeCart[i].quantity++;
+
+        //        quantites[i].textContent = "Quantity: " + coffeeCart[i].quantity;
+        //         prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH `
+        //           calculerTotale(coffeeCart) 
+        //           break
+        //       }
+        const add=document.querySelectorAll(".ajout")
+        for (let i =0;i<add.length;i++){
+          add[i].addEventListener("click",function(){
+            dialog.close();
+          let idChoisi=add[i].dataset.id
+          // console.log(idChoisi)
+        
+        const Existe = coffeeCart.find(coffee => coffee.id === idChoisi)??false;
+        console.log(Existe)
+        if (Existe) {
+          // console.log("hi")
+            // Existe.quantity++;
+            console.log(Existe)
+            
+              commandes.innerHTML = "";
+                //    coffeeCart.forEach(coffee => {
+                //     console.log(coffee)
+                //   commandes.innerHTML += `
+                //  <div class="product">
+                //   <h3>${coffee.name}</h3>
+                //    <p>Quantité : ${coffee.quantity}</p>
+                //    <p>Prix : ${(coffee.price * coffee.quantity).toFixed(2)} DH</p>
+                //  </div>
+                //   `;
+                //  });
+                console.log (commandes)
+              for(let i=0;i<coffeeCart.length;i++){
+                
               if(idChoisi==coffeeCart[i].id){
                coffeeCart[i].quantity++;
 
@@ -162,19 +187,71 @@ coffeedemande.forEach(coffee => {
                 prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH `
                   calculerTotale(coffeeCart) 
               }
-            }
-          
-             dialog.close();
-          })
+              }  
+            
+          }
+         else{
+          // console.log("hiii")
+            let nouveauProduit = coffeeProducts.find(coffee => coffee.id === idChoisi);
+            console.log(nouveauProduit);
+            coffeChoisi = {
+                id: nouveauProduit.id,
+                name: nouveauProduit.name,
+                price: nouveauProduit.price,
+                quantity: 1,
+                image: nouveauProduit.image};
+                coffeeCart.push( coffeChoisi)
+
+                 
+                  //  coffeeCart.forEach(coffee => {
+                  //   console.log(coffee )
+                  //  commandes.innerHTML += `
+                  //   <div class="product">
+                  //   <h3>${coffee.name}</h3>
+                  //   <p>Quantité : ${coffee.quantity}</p>
+                  //  <p>Prix : ${(coffee.price * coffee.quantity).toFixed(2)} DH</p>
+                  //   </div>
+                  //   `;
+                    // });
+              coffeeCart.forEach(coffee => {
+                 
+    for(let i=0;i<commandes.length;i++){
+        commandes.innerHTML = "";// probleme d'afichage
+        commandes[i].innerHTML += `
+    <div class="horizontale" data-id="${coffee.id}">
+      <img src="${coffee.image}" alt="${coffee.name}">
+      <div class="vertical">
+        <h3>${coffee.name}</h3>
+      </div>
+      <div class="vertical">
+        <div class="horizontale">
+          <button type="button" class="augmenter">+</button>
+
+          <span class="quantite">Quantity: ${coffee.quantity}</span>
+
+          <button type="button" class="diminuer">-</button>
+        </div>
+
+        <h4 class="price">Price: ${(coffee.price * coffee.quantity)} DH</h4>
+      </div>
+
+    </div>
+  `;
+    }
+  
+}); 
+
+              } 
+               
+        if (coffeedemande.length === 0) {
+        results.innerHTML = "<p>Aucun produit trouvé.</p>";
+          }
+
+     });
         }
+        
+     })         
       
 
-    // Si aucun résultat
-    if (coffeedemande.length === 0) {
-        results.innerHTML = "<p>Aucun produit trouvé.</p>";
-    }
-
-  });
-  // ajout de choix dans le tableau de coffe cart 
   
   
