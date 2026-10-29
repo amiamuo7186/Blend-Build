@@ -18,6 +18,13 @@ let coffeeCart = [
   { id: "c3", name: "Latte Caramel", price: 4.50, quantity: 1, image: "../assets/LatteCaramel.png " },
   { id: "c8", name: "Mug Isotherme Noir", price: 15.00, quantity: 1, image: "../assets/MugIsothermeNoir.png" }
 ];
+coffeChoisi={
+  id:null,
+  name:null,
+  price:null,
+  quantity:null,
+  image:null,
+}
 // remplir le panier d'apres data 
 const commandes=document.querySelectorAll(".commandes")
 coffeeCart.forEach(coffee => {
@@ -83,6 +90,7 @@ for (let i = 0; i < augmenter.length; i++) {
 
 }
 const diminuer=document.querySelectorAll(".diminuer")
+
 for (let i = 0; i < augmenter.length; i++) {
 
     diminuer[i].addEventListener("click", function () {
@@ -100,26 +108,24 @@ for (let i = 0; i < augmenter.length; i++) {
 
 // modal 
 const dialog = document.getElementById("myDialog"); 
-const ajout=document.querySelector(".ajout")
-// const add=document.getElementById("ajout")
+const ajout=document.querySelector(".ajoute")
 const chercher=document.getElementById("chercher")
 const results=document.getElementById("results")
-
 ajout.addEventListener("click",function(){
   
   dialog.show();
 })
-// add.addEventListener("click",function(){
-//   dialog.close();
-// })
-// console.log(chercher.value)
-
 chercher.addEventListener("input", function () {
 const valeur = chercher.value.toLowerCase()
-console.log(valeur)
 let coffeedemande=coffeeProducts.filter(coffe=>coffe.name.toLowerCase().includes(valeur) )
+results.innerHTML= "" // pour vider result apres chaque input
+// traiter le cas de input vide 
+if (valeur==""){
+  coffeedemande=""
+  results.innerHTML = "<p>chisir un choix .</p>";
+}
 // console.log(coffeedemande);
-results.innerHTML= "" // pour vider result apres chaque input  
+  
 coffeedemande.forEach(coffee => {
 
         results.innerHTML += `
@@ -135,8 +141,33 @@ coffeedemande.forEach(coffee => {
 
             </div>
         `;
-
     });
+
+    
+    const add=document.querySelectorAll(".ajout")
+        console.log(add)
+        for(let i=0;i<add.length;i++){
+          add[i].addEventListener("click",function(){
+            
+            
+            let idChoisi=add[i].dataset.id
+            // console.log(add[i].dataset.id);
+            // console.log(idChoisi)
+            for (let i =0;i<coffeeCart.length;i++){
+              
+              if(idChoisi==coffeeCart[i].id){
+               coffeeCart[i].quantity++;
+
+               quantites[i].textContent = "Quantity: " + coffeeCart[i].quantity;
+                prix[i].textContent= `Price:  ${coffeeCart[i].quantity*coffeeCart[i].price}DH `
+                  calculerTotale(coffeeCart) 
+              }
+            }
+          
+             dialog.close();
+          })
+        }
+      
 
     // Si aucun résultat
     if (coffeedemande.length === 0) {
@@ -144,3 +175,6 @@ coffeedemande.forEach(coffee => {
     }
 
   });
+  // ajout de choix dans le tableau de coffe cart 
+  
+  

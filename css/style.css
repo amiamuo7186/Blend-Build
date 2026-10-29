@@ -427,3 +427,18 @@ main{
     text-align: center;
     justify-content:start;
 }
+.search{
+    background-color:#E9EEDC;
+    border-radius:10px;
+    margin-left: 50px;
+}
+.search label{
+    margin: 10px;
+}
+.search input{
+    margin: 10px;
+}
+.search div{
+    margin: 15px ;
+}
+
