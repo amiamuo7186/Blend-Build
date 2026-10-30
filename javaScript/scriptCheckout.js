@@ -144,6 +144,7 @@ coffeedemande.forEach(coffee => {
               `;
          });
 
+
          // traitement de choix 
         const add=document.querySelectorAll(".ajout")
         for (let i =0;i<add.length;i++){
@@ -223,10 +224,98 @@ coffeedemande.forEach(coffee => {
             }
               } 
      });
-        }
-        
+        } 
      })         
       
+ //validation de payements 
+ const fname=document.querySelector("#fname")
+ const lname=document.querySelector("#lname")
+ const adresse=document.querySelector("#adresse")
+ const email=document.querySelector("#email")
+ const tele=document.querySelector("#tele")
+ const Cartebancaire=document.querySelector("#Carteb")
+ const dateExpiration=document.querySelector("#dateexp")
+ const CVV =document.querySelector("#CVV")
+let btn = document.getElementById("payer");
 
+
+btn.addEventListener("click", function() {
+
+    if (/^[a-zA-Z0-9._%+-]+@gmail.com$/.test(email.value)) {
+
+     return
+
+    } else {
+      email.style.outlineColor = "red";
+      email.style.fontSize = "20px";
+       alert("Veuillez entrer une adresse Gmail valide");
+    }
+    if (/^(\d{1,}) [a-zA-Z0-9\s]+(,)? [a-zA-Z]+(,)? [A-Z]{2} [0-9]{5,6}$  /.test(adresse.value)) {
+
+     return
+
+    } else {
+      adresse.style.outlineColor = "red";
+      adresse.style.fontSize = "20px";
+       alert("Veuillez entrer une  adresse valide");
+    }
+    if (/^[a-zA-Z ]{2,30}$/.test(fname.value)) {
+
+     return
+
+    } else {
+      fname.style.outlineColor = "red";
+      fname.style.fontSize = "20px";
+       alert("Veuillez entrer un prenon  valide");
+    }
+    if (/^[a-zA-Z ]{2,30}$/ .test(lname.value)) {
+
+     return
+
+    } else {
+      lname.style.outlineColor = "red";
+      lname.style.fontSize = "20px";
+       alert("Veuillez entrer une nom valide");
+    }
+    if (/^0[1-9](?:[ .-]?\d{2}){4}$/.test(tele.value)) {
+
+     return
+
+    } else {
+      tele.style.outlineColor = "red";
+      tele.style.fontSize = "20px";
+       alert("Veuillez entrer un numero de telephone valide");
+    } 
+    if (/^(0[1-9]|1[0-2])\/(20\d{2}) $/.test(dateExpiration.value)) {
+
+     return
+
+    } else {
+      dateExpiration.style.outlineColor = "red";
+      dateExpiration.style.fontSize = "20px";
+       alert("Veuillez entrer une date d'expiration  valide");
+    }
+    if (/^4[0-9]{12}(?:[0-9]{3})?$ /.test(Cartebancaire.value)) {
+
+     return
+
+    } else {
+      Cartebancaire.style.outlineColor = "red";
+      Cartebancaire.style.fontSize = "20px";
+       alert("Veuillez entrer une carte bancaire  valide");
+    }
+   if (/^\d{3}$ /.test(CVV.value)) {
+
+     return
+
+    } else {
+      CVV.style.outlineColor = "red";
+      CVV.style.fontSize = "20px";
+       alert("Veuillez entrer un CVV valide");
+    }
+
+
+
+});
   
   
