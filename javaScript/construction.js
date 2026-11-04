@@ -20,6 +20,10 @@ const labelSuplement = document.getElementById("supplements")
 const previous3 = document.getElementById("previous3")
 const partie2 = document.getElementById("2")
 const partie3 = document.getElementById("3")
+let data=[];
+let Products ={};
+console.log (data)
+console.log(Products)
 // console.log(next1)
 // console.log(base)
 //  *************** validation des Information Generale *************
@@ -70,6 +74,8 @@ next1.addEventListener("click", function () {
     let valeurP = prixb.value
     let valeurImg = img.value
     let valeurDate = new Date(datF.value)
+    // console.log(valeurDate);
+    
     // console.log(validateBase(valeurN))
     if (!validateBase(valeurN)) {
         base.style.borderColor = "red"
@@ -79,6 +85,8 @@ next1.addEventListener("click", function () {
     else {
         base.style.borderColor = "green"
         msg1.remove();
+        Products.base=valeurN;
+        // console.log( Products)
         
     }
     if (!validatePrix(valeurP)) {
@@ -89,7 +97,7 @@ next1.addEventListener("click", function () {
     else {
         prixb.style.borderColor = "green"
         msg2.remove();
-        
+        Products.prix= valeurP;
     }
     if (!validateImg(valeurImg)) {
         img.style.borderColor = "red"
@@ -99,6 +107,7 @@ next1.addEventListener("click", function () {
     else {
         img.style.borderColor = "green"
         msg.remove();
+        Products.image=valeurImg
        
     }
     Promos()
@@ -115,8 +124,12 @@ next1.addEventListener("click", function () {
             else {
                 reduction.style.borderColor = "green"
                 msg3.remove();
+                Products.reduction=valeurRed
+                ok=true;
                 
             }
+                //  console.log(valeurDate);
+
             if (!validateDate(valeurDate)) {
                 datF.style.borderColor = "red"
                 const parentI = datF.parentElement
@@ -126,6 +139,8 @@ next1.addEventListener("click", function () {
             else {
                 datF.style.borderColor = "green"
                 msg4.remove();
+                Products.dateFin=valeurDate
+                ok=true
                 
             }
 
@@ -153,12 +168,13 @@ next1.addEventListener("click", function () {
             text: "Verifier les champs ",
         });
     }
-
+console.log(Products)
 })
 function validateDate(valeur) {
     const now = new Date()
-    if (now > valeur) {
-        console.log(hi)
+    
+    if (now < valeur) {
+      
         return true
     }
     else {
@@ -210,6 +226,7 @@ previous2.addEventListener("click", function () {
     partie2.classList.remove("Style-Number")
 
 })
+
 //  *************** Caractéristiques & Options *************
 next2.addEventListener("click", function () {
     const tempe = document.querySelector('input[name="temp"]:checked')
