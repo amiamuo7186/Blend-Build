@@ -93,15 +93,15 @@
                <label for="niveaIntensite" class="text-sm font-medium text-[#30291F]">Niveau de torréfaction:
                     <input id="niveaIntensite" type="range" min="0" max="10">
                </label>
-               <label class="text-sm font-medium text-[#30291F]">Température
+               <label id="tempe" class="text-sm font-medium text-[#30291F]">Température
                     <label for="chaud" class="text-sm font-medium text-[#30291F]">
-                         <input type="radio" id="chaud" name="temp">Chaud
+                         <input type="radio" id="chaud" name="temp" value="chaud">Chaud
                     </label>
                     <label for="glacé" class="text-sm font-medium text-[#30291F]">
-                         <input type="radio" id="glacé" name="temp"> Glacé
+                         <input type="radio" id="glacé" name="temp" value="glace"> Glacé
                     </label>
                </label>
-               <label class="text-sm font-medium text-[#30291F]">Tailles disponibles:
+               <label id="taille" class="text-sm font-medium text-[#30291F]">Tailles disponibles:
                     <label for="s" class="text-sm font-medium text-[#30291F]">
                          <input type="checkbox" name="taille" id="s">Small
                     </label>
@@ -112,7 +112,7 @@
                          <input type="checkbox" name="taille" id="l">Large
                     </label>
                </label>
-               <label class="text-sm font-medium text-[#30291F]">Options de lait:
+               <label id="lait" class="text-sm font-medium text-[#30291F]">Options de lait:
                     <label for="vache" class="text-sm font-medium text-[#30291F]">
                          <input type="checkbox" name="lait" id="vache">Vache
                     </label>
@@ -126,15 +126,15 @@
                          <input type="checkbox" name="lait" id="Amande">Amande
                     </label>
                </label>
-               <label class="text-sm font-medium text-[#30291F]">Suppléments
+               <label id="supplements" class="text-sm font-medium text-[#30291F]">Suppléments
                     <label for="vanille" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="taille" id="vanille">Vanille
+                         <input type="checkbox" name="supplements" id="vanille">Vanille
                     </label>
                     <label for="caramel" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="taille" id="caramel">Caramel
+                         <input type="checkbox" name="supplements" id="caramel">Caramel
                     </label>
                     <label for="noisette" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="taille" id="noisette">Noisette
+                         <input type="checkbox" name="supplements" id="noisette">Noisette
                     </label>
                </label>
                <div class="flex justify-between ">
@@ -152,6 +152,7 @@
 
      </form>
      <script src="../javaScript/construction.js "></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
