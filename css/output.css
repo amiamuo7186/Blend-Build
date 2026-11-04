@@ -337,6 +337,17 @@
     accent-color: #394B32;
   }
 }
+.Style-Number {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #394B32;
+  color: white;
+  font-weight: bold;
+}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;

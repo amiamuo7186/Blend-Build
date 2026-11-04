@@ -18,6 +18,8 @@ const labelTaile = document.getElementById("taille")
 const labelLait = document.getElementById("lait")
 const labelSuplement = document.getElementById("supplements")
 const previous3 = document.getElementById("previous3")
+const partie2 = document.getElementById("2")
+const partie3 = document.getElementById("3")
 // console.log(next1)
 // console.log(base)
 //  *************** validation des Information Generale *************
@@ -76,36 +78,55 @@ next1.addEventListener("click", function () {
     }
     else {
         base.style.borderColor = "green"
-        const parentB = base.parentElement
-        parentB.remove(msg, base.nextSibling)
+        msg1.remove();
+        
     }
     if (!validatePrix(valeurP)) {
         prixb.style.borderColor = "red"
         const parentP = prixb.parentElement
         parentP.insertBefore(msg2, prixb.nextSibling)
     }
+    else {
+        prixb.style.borderColor = "green"
+        msg2.remove();
+        
+    }
     if (!validateImg(valeurImg)) {
         img.style.borderColor = "red"
         const parentI = img.parentElement
         parentI.insertBefore(msg, img.nextSibling)
     }
+    else {
+        img.style.borderColor = "green"
+        msg.remove();
+       
+    }
     Promos()
     function Promos() {
         let ok = true
         if (existeP.checked) {
-            console.log("hi")
+            // console.log("hi")
             if (!validatePr(valeurRed)) {
-
                 reduction.style.borderColor = "red"
                 const parentI = reduction.parentElement
                 parentI.insertBefore(msg3, reduction.nextSibling)
                 ok = false
+            }
+            else {
+                reduction.style.borderColor = "green"
+                msg3.remove();
+                
             }
             if (!validateDate(valeurDate)) {
                 datF.style.borderColor = "red"
                 const parentI = datF.parentElement
                 parentI.insertBefore(msg4, datF.nextSibling)
                 ok = false
+            }
+            else {
+                datF.style.borderColor = "green"
+                msg4.remove();
+                
             }
 
             console.log(ok)
@@ -120,8 +141,12 @@ next1.addEventListener("click", function () {
     if (validateBase(valeurN) && validatePrix(valeurP) && validateImg(valeurImg) && Promos()) {
         info.hidden = true
         caract.hidden = false
+
+        partie2.classList.add("Style-Number")
+
+
     }
-     else {
+    else {
         Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -182,6 +207,8 @@ existeP.addEventListener("click", function () {
 previous2.addEventListener("click", function () {
     info.hidden = false
     caract.hidden = true
+    partie2.classList.remove("Style-Number")
+
 })
 //  *************** Caractéristiques & Options *************
 next2.addEventListener("click", function () {
@@ -199,7 +226,7 @@ next2.addEventListener("click", function () {
         }
         else {
             Origine.style.borderColor = "green"
-            msg5.textContent = ""
+            msg5.remove();
             return true
         }
     }
@@ -213,7 +240,7 @@ next2.addEventListener("click", function () {
             return false
         }
         else {
-            msg6.textContent = ""
+           msg6.remove();
             return true
         }
     }
@@ -226,7 +253,7 @@ next2.addEventListener("click", function () {
             return false
         }
         else {
-            msg7.textContent = ""
+          msg7.remove();
             return true
         }
     }
@@ -238,7 +265,7 @@ next2.addEventListener("click", function () {
             return false
         }
         else {
-            msg8.textContent = ""
+            msg8.remove();
             return true
         }
     }
@@ -250,7 +277,7 @@ next2.addEventListener("click", function () {
             return false
         }
         else {
-            msg9.textContent = ""
+           msg9.remove();
             return true
         }
     }
@@ -258,6 +285,7 @@ next2.addEventListener("click", function () {
     if (origine() && temperature() && tailles() && laits() && supplements()) {
         caract.hidden = true;
         recup.hidden = false;
+        partie3.classList.add("Style-Number")
     }
     else {
         Swal.fire({
@@ -270,4 +298,6 @@ next2.addEventListener("click", function () {
 previous3.addEventListener("click", function () {
     caract.hidden = false
     recup.hidden = true
+    partie3.classList.remove("Style-Number")
+
 })
