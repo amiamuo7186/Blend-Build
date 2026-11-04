@@ -10,9 +10,9 @@ const Promo = document.getElementById("Promo")
 const previous2 = document.getElementById("previous2")
 const reduction = document.getElementById("reduction")
 const datF = document.getElementById("dateF")
-console.log(next1)
-console.log(base)
-
+// console.log(next1)
+// console.log(base)
+//  *************** validation des Information Generale *************
 const msg = document.createElement("p")
 msg.style.color = "red";
 msg.textContent = "veuiller entrer une image valide  "
@@ -58,26 +58,26 @@ next1.addEventListener("click", function () {
     Promos()
     function Promos() {
         let ok = true
-
         if (existeP.checked) {
             console.log("hi")
             if (!validatePr(valeurRed)) {
+                
                 reduction.style.borderColor = "red"
                 const parentI = reduction.parentElement
                 parentI.insertBefore(msg3, reduction.nextSibling)
-                // ok=false
+                ok=false
             }
             if (!validateDate(valeurDate)) {
                 datF.style.borderColor = "red"
                 const parentI = datF.parentElement
                 parentI.insertBefore(msg4, datF.nextSibling)
-                // ok=false
+                ok=false
             }
-            ok = !validatePr(valeurRed) && !validateDate(valeurDate)
+            
             console.log(ok)
-            return ok
+            
         }
-
+    return ok
 
     }
     //  console.log(ok)
