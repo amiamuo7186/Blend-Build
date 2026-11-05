@@ -168,6 +168,7 @@ next1.addEventListener("click", function () {
             text: "Verifier les champs ",
         });
     }
+    // data.push(Products)
 console.log(Products)
 })
 function validateDate(valeur) {
@@ -244,7 +245,9 @@ next2.addEventListener("click", function () {
         else {
             Origine.style.borderColor = "green"
             msg5.remove();
+            Products.origine=valeurOr;
             return true
+
         }
     }
     origine()
@@ -258,11 +261,13 @@ next2.addEventListener("click", function () {
         }
         else {
            msg6.remove();
+           Products.temperature=tempe
             return true
         }
     }
     temperature()
     function tailles() {
+        const tabTaille=[]
         if (taille.length == 0) {
 
             const parentI = labelTaile.parentElement
@@ -271,11 +276,15 @@ next2.addEventListener("click", function () {
         }
         else {
           msg7.remove();
+          console.log(taille.value)
+          tabTaille.push(taille.value)
+          Products.taille=tabTaille
             return true
         }
     }
     tailles()
     function laits() {
+        const tabLait=[]
         if (lait.length == 0) {
             const parentI = labelLait.parentElement
             parentI.insertBefore(msg8, labelLait.nextSibling)
@@ -283,11 +292,14 @@ next2.addEventListener("click", function () {
         }
         else {
             msg8.remove();
+            tabLait.push(lait.value)
+          Products.lait=tabLait
             return true
         }
     }
     laits()
     function supplements() {
+        const tabSupplement=[]
         if (suplement.length == 0) {
             const parentI = labelSuplement.parentElement
             parentI.insertBefore(msg9, labelSuplement.nextSibling)
@@ -295,6 +307,8 @@ next2.addEventListener("click", function () {
         }
         else {
            msg9.remove();
+           tabSupplement.push(suplement.value)
+          Products.suplement=tabSupplement
             return true
         }
     }
@@ -311,6 +325,9 @@ next2.addEventListener("click", function () {
             text: "Verifier les champs ",
         });
     }
+    data.push(Products)
+    console.log(Products)
+    console.log(data)
 })
 previous3.addEventListener("click", function () {
     caract.hidden = false
