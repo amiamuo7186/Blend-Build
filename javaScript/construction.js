@@ -20,10 +20,12 @@ const labelSuplement = document.getElementById("supplements")
 const previous3 = document.getElementById("previous3")
 const partie2 = document.getElementById("2")
 const partie3 = document.getElementById("3")
-let data=[];
-let Products ={};
-console.log (data)
-console.log(Products)
+const description = document.getElementById("des")
+const intensité = document.getElementById("niveaIntensite")
+let data = [];
+let Products = {};
+// console.log(data)
+// console.log(Products)
 // console.log(next1)
 // console.log(base)
 //  *************** validation des Information Generale *************
@@ -69,13 +71,15 @@ msg9.style.color = "red";
 msg9.textContent = "veuiller choisir un supplement valide  "
 
 next1.addEventListener("click", function () {
+    let valeurDesc = description.value
+    console.log(valeurDesc)
     let valeurRed = reduction.value
     let valeurN = base.value
     let valeurP = prixb.value
     let valeurImg = img.value
     let valeurDate = new Date(datF.value)
     // console.log(valeurDate);
-    
+
     // console.log(validateBase(valeurN))
     if (!validateBase(valeurN)) {
         base.style.borderColor = "red"
@@ -85,9 +89,9 @@ next1.addEventListener("click", function () {
     else {
         base.style.borderColor = "green"
         msg1.remove();
-        Products.base=valeurN;
+        Products.base = valeurN;
         // console.log( Products)
-        
+
     }
     if (!validatePrix(valeurP)) {
         prixb.style.borderColor = "red"
@@ -97,7 +101,7 @@ next1.addEventListener("click", function () {
     else {
         prixb.style.borderColor = "green"
         msg2.remove();
-        Products.prix= valeurP;
+        Products.prix = valeurP;
     }
     if (!validateImg(valeurImg)) {
         img.style.borderColor = "red"
@@ -107,8 +111,8 @@ next1.addEventListener("click", function () {
     else {
         img.style.borderColor = "green"
         msg.remove();
-        Products.image=valeurImg
-       
+        Products.image = valeurImg
+
     }
     Promos()
     function Promos() {
@@ -124,11 +128,11 @@ next1.addEventListener("click", function () {
             else {
                 reduction.style.borderColor = "green"
                 msg3.remove();
-                Products.reduction=valeurRed
-                ok=true;
-                
+                Products.reduction = valeurRed
+                ok = true;
+
             }
-                //  console.log(valeurDate);
+            //  console.log(valeurDate);
 
             if (!validateDate(valeurDate)) {
                 datF.style.borderColor = "red"
@@ -139,12 +143,17 @@ next1.addEventListener("click", function () {
             else {
                 datF.style.borderColor = "green"
                 msg4.remove();
-                Products.dateFin=valeurDate
-                ok=true
-                
-            }
+                Products.dateFin = valeurDate
+                ok = true
 
-            console.log(ok)
+            }
+            
+           if(valeurDesc!=""){
+            console.log("hi")
+            Products.description=valeurDesc
+            console.log(Products.description)
+           }
+
 
         }
         return ok
@@ -169,13 +178,13 @@ next1.addEventListener("click", function () {
         });
     }
     // data.push(Products)
-console.log(Products)
+    console.log(Products)
 })
 function validateDate(valeur) {
     const now = new Date()
-    
+
     if (now < valeur) {
-      
+
         return true
     }
     else {
@@ -230,6 +239,8 @@ previous2.addEventListener("click", function () {
 
 //  *************** Caractéristiques & Options *************
 next2.addEventListener("click", function () {
+    let niveauIn = intensité.value
+    console.log(niveauIn)
     const tempe = document.querySelector('input[name="temp"]:checked')
     const taille = document.querySelectorAll('input[ name="taille"]:checked')
     const lait = document.querySelectorAll('input[name="lait"]:checked')
@@ -245,7 +256,7 @@ next2.addEventListener("click", function () {
         else {
             Origine.style.borderColor = "green"
             msg5.remove();
-            Products.origine=valeurOr;
+            Products.origine = valeurOr;
             return true
 
         }
@@ -260,14 +271,14 @@ next2.addEventListener("click", function () {
             return false
         }
         else {
-           msg6.remove();
-           Products.temperature=tempe
+            msg6.remove();
+            Products.temperature = tempe.value
             return true
         }
     }
     temperature()
     function tailles() {
-        const tabTaille=[]
+        const tabTaille = []
         if (taille.length == 0) {
 
             const parentI = labelTaile.parentElement
@@ -275,16 +286,19 @@ next2.addEventListener("click", function () {
             return false
         }
         else {
-          msg7.remove();
-          console.log(taille.value)
-          tabTaille.push(taille.value)
-          Products.taille=tabTaille
+            msg7.remove();
+            taille.forEach(t => {
+                tabTaille.push(t.value)
+                Products.taille = tabTaille
+            });
+            // console.log(tabTaille)
+
             return true
         }
     }
     tailles()
     function laits() {
-        const tabLait=[]
+        const tabLait = []
         if (lait.length == 0) {
             const parentI = labelLait.parentElement
             parentI.insertBefore(msg8, labelLait.nextSibling)
@@ -292,31 +306,85 @@ next2.addEventListener("click", function () {
         }
         else {
             msg8.remove();
-            tabLait.push(lait.value)
-          Products.lait=tabLait
+            lait.forEach(l => {
+                tabLait.push(l.value)
+                Products.lait = tabLait
+            })
+
             return true
         }
     }
     laits()
     function supplements() {
-        const tabSupplement=[]
+        const tabSupplement = []
         if (suplement.length == 0) {
             const parentI = labelSuplement.parentElement
             parentI.insertBefore(msg9, labelSuplement.nextSibling)
             return false
         }
         else {
-           msg9.remove();
-           tabSupplement.push(suplement.value)
-          Products.suplement=tabSupplement
+            msg9.remove();
+            suplement.forEach(s => {
+                tabSupplement.push(s.value)
+                Products.suplement = tabSupplement
+            })
+
+
             return true
         }
+
     }
     supplements()
+    Products.niveauIntensité = niveauIn
     if (origine() && temperature() && tailles() && laits() && supplements()) {
         caract.hidden = true;
         recup.hidden = false;
         partie3.classList.add("Style-Number")
+        console.log(Products)
+        // data.push(Products)
+        // console.log(Products)
+        console.log(data)
+        function afficherObjet(obj) {
+           
+            
+
+
+        const resume = document.getElementById("resume");
+
+            resume.innerHTML = `
+        <h2>Résumé de la commande</h2>
+
+        <img src="${obj.image}" alt="Image du produit" width="150">
+        
+
+        <p><strong>Base :</strong> ${obj.base}</p>
+        <p><strong>Prix :</strong> ${obj.prix} DH</p>
+        <p><strong>Origine :</strong> ${obj.origine}</p>
+        <p><strong>Température :</strong> ${obj.temperature}</p>
+
+        <p><strong>Lait :</strong> ${obj.lait}</p>
+        <p><strong>Suppléments :</strong> ${obj.suplement}</p>
+        <p><strong>Taille :</strong> ${obj.taille}</p>
+       
+    `; 
+    console.log(obj.description)
+    //  if((obj.description )){
+    //             const desc=document.getElementById("desc")
+    //             desc.innerHTML=`<p><strong>Description:</strong>${obj.description}</p>`
+    //         }
+            // console.log (desc.textContent)
+            if (existeP.checked) {
+                const promotions = document.getElementById("promotions")
+                promotions.innerHTML = `
+                     <h3>Promotions :</h3>
+                  <p><strong>Pourcentage de reduction:</strong> ${obj.reduction}</p>
+                  <p><strong>Date de Fin:</strong>${obj.dateFin.toDateString()}</p>
+        `
+            }
+        }
+
+
+        afficherObjet(Products);
     }
     else {
         Swal.fire({
@@ -325,13 +393,15 @@ next2.addEventListener("click", function () {
             text: "Verifier les champs ",
         });
     }
-    data.push(Products)
-    console.log(Products)
-    console.log(data)
+
+
+
 })
 previous3.addEventListener("click", function () {
     caract.hidden = false
     recup.hidden = true
     partie3.classList.remove("Style-Number")
+    data.pop()
+    console.log(data)
 
 })

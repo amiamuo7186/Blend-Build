@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
+     <title>construction</title>
      <link rel="stylesheet" href="../css/output.css">
 
 </head>
@@ -39,25 +39,25 @@
           <section id="Informations" class="flex flex-col gap-4 p-6 bg-white rounded-xl m-100 mt-0 mb-0">
                <div class="flex flex-col gap-2">
                     <label for="base" class="text-sm font-medium text-[#30291F]">Nom de la boisson
-                         <input type="text" id="base" class="w-full p-2 border border-[#796A59] rounded-lg" required
+                         <input type="text" id="base" class="w-full p-2 border border-[#796A59] rounded-lg"
                               placeholder="EX:Espresso">
                     </label>
                     <label for="PrixB" class="text-sm font-medium text-[#30291F]">Prix de base
                          <input type="number" min="0" step="0.01" id="PrixB"
-                              class="w-full p-2 border border-[#796A59] rounded-lg" placeholder="EX:18.00 DH" required>
+                              class="w-full p-2 border border-[#796A59] rounded-lg" placeholder="EX:18.00 DH">
                     </label>
                     <label for="des" class="text-sm font-medium text-[#30291F]">Description
                          <textarea id="des" class="w-full p-2 border border-[#796A59] rounded-lg"
-                              placeholder="description :" required></textarea>
+                              placeholder="description :"></textarea>
                     </label>
                     <label for="img" class="text-sm font-medium text-[#30291F]">Image du produit
                          <input type="url" id="img" class="w-full p-2 border border-[#796A59] rounded-lg"
-                              placeholder="poser l'url de votre image " required>
+                              placeholder="poser l'url de votre image ">
                     </label>
                     <div class="flex flex-col gap-6">
                          <label class="text-sm font-medium text-[#30291F]">Produit en promotion:
                               <input type="checkbox" id="existeP" name="exicte" value="option1"
-                                   class="w-4 h-4 accent-[#394B32]" required> OUI
+                                   class="w-4 h-4 accent-[#394B32]"> OUI
                               <!-- <input type="checkbox" name="exicte" value="option2">NON -->
                     </div>
                     <div id="Promo" class="hidden">
@@ -67,7 +67,7 @@
                          </label>
                          <label for="dateF" class="text-sm font-medium text-[#30291F]"> Date de fin
                               <input type="date" id="dateF" class="w-full p-2 border border-[#796A59] rounded-lg"
-                                   required>
+                                  >
                          </label>
                     </div>
 
@@ -90,7 +90,7 @@
                     </select>
                </label>
                <label for="niveaIntensite" class="text-sm font-medium text-[#30291F]">Niveau de torréfaction:
-                    <input id="niveaIntensite" type="range" min="0" max="10">
+                    <input id="niveaIntensite" type="range" min="0" max="10" value="">
                </label>
                <label id="tempe" class="text-sm font-medium text-[#30291F]">Température
                     <label for="chaud" class="text-sm font-medium text-[#30291F]">
@@ -113,27 +113,27 @@
                </label>
                <label id="lait" class="text-sm font-medium text-[#30291F]">Options de lait:
                     <label for="vache" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="lait" id="vache">Vache
+                         <input type="checkbox" name="lait" id="vache" value="Vache">Vache
                     </label>
                     <label for="Avoine" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="lait" id="Avoine">Avoine
+                         <input type="checkbox" name="lait" id="Avoine" value="Avoine">Avoine
                     </label>
                     <label for="Soja" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="lait" id="Soja">Soja
+                         <input type="checkbox" name="lait" id="Soja" value="Soja">Soja
                     </label>
                     <label for="Amande">
-                         <input type="checkbox" name="lait" id="Amande">Amande
+                         <input type="checkbox" name="lait" id="Amande" value="Amande">Amande
                     </label>
                </label>
                <label id="supplements" class="text-sm font-medium text-[#30291F]">Suppléments
                     <label for="vanille" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="supplements" id="vanille">Vanille
+                         <input type="checkbox" name="supplements" id="vanille" value="Vanille">Vanille
                     </label>
                     <label for="caramel" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="supplements" id="caramel">Caramel
+                         <input type="checkbox" name="supplements" id="caramel" value="Caramel">Caramel
                     </label>
                     <label for="noisette" class="text-sm font-medium text-[#30291F]">
-                         <input type="checkbox" name="supplements" id="noisette">Noisette
+                         <input type="checkbox" name="supplements" id="noisette" value="Noisette">Noisette
                     </label>
                </label>
                <div class="flex justify-between ">
@@ -143,6 +143,9 @@
           </section>
           <!-- Récapitulatif -->
           <section id="recapitalatif" class="  flex flex-col gap-6 p-6 bg-[#FAF7F0] m-100 mt-0 mb-0"hidden>
+               <div id="resume"></div>
+               <p id="desc"></p>
+               <div id ="promotions"></div>
                <div class="flex justify-between ">
                     <button type="button" id="previous3"  class="bg-[#394B32] text-white px-6 py-2 rounded-lg cursor-pointer ">Previous</button>
                     <button type="submit" id="next3"  class="bg-[#394B32] text-white px-6 py-2 rounded-lg cursor-pointer ">Suivant</button>
