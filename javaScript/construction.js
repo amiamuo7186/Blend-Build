@@ -114,6 +114,12 @@ next1.addEventListener("click", function () {
         Products.image = valeurImg
 
     }
+      console.log(valeurDesc!="")
+           if(valeurDesc!=""){
+            console.log("hi")
+            Products.description = valeurDesc
+            console.log(Products.description)
+           }
     Promos()
     function Promos() {
         let ok = true
@@ -147,12 +153,7 @@ next1.addEventListener("click", function () {
                 ok = true
 
             }
-            
-           if(valeurDesc!=""){
-            console.log("hi")
-            Products.description=valeurDesc
-            console.log(Products.description)
-           }
+          
 
 
         }
@@ -368,16 +369,16 @@ next2.addEventListener("click", function () {
        
     `; 
     console.log(obj.description)
-    //  if((obj.description )){
-    //             const desc=document.getElementById("desc")
-    //             desc.innerHTML=`<p><strong>Description:</strong>${obj.description}</p>`
-    //         }
-            // console.log (desc.textContent)
+     if((obj.description )){
+                const desc=document.getElementById("desc")
+                desc.innerHTML=`<p><strong>Description:</strong>${obj.description}</p>`
+            }
+            console.log (desc.textContent)
             if (existeP.checked) {
                 const promotions = document.getElementById("promotions")
                 promotions.innerHTML = `
-                     <h3>Promotions :</h3>
-                  <p><strong>Pourcentage de reduction:</strong> ${obj.reduction}</p>
+                     <h3> Promotions :</h3>
+                  <p><strong>Pourcentage de reduction:</strong> ${obj.reduction}%</p>
                   <p><strong>Date de Fin:</strong>${obj.dateFin.toDateString()}</p>
         `
             }
